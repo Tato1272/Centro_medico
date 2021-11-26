@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!--acceso al css local-->
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block contenido %}
+<!-- Carrusel de imagenes -->
+<aside class="aside aside-1">
+    <img src="{% static 'img/Foto-medico.png' %}" alt="">
+</aside>
+<!-- Introduccion gatitos Ascii -->
+<aside class="aside aside-2">Cats for text, es una organización dedicada a darle un hogar a todos los
+    gatitos hechos en textos abandonados en foros y chats.
+    <br> Tú también puedes copiar a tu clipboard un gatito en ASCII o un lindo ":3".
+</aside>
+{% endblock %} 
