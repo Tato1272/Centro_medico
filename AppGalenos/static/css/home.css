@@ -8,20 +8,14 @@
 .aside-1{
     padding-left: 30%;
     padding-right: 30%;
+    
 
 }
 
 
-.carousel-inner img {
-    width: 100%;
-}
-
-.carousel {
-    min-width: 256px;
-}
-
-.carousel-control-prev-icon, .carousel-control-next-icon {
-    background-color: black;
+#medico{
+    width:100%;
+    
 }
 
 /* .imagen img {

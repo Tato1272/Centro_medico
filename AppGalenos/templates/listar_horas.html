@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!--acceso al css local-->
+{% block css %}
+<link rel="stylesheet" href="#">
+{% endblock %}
+
+{% block contenido %}
+    
+    <h2>Horas Disponibles</h2>
+
+    {% for c in horas %}
+        <div class="item">
+          <div class="d1">
+              <p class="name">{{ c.fecha }}</p> 
+          </div>
+
+          <div class="d1">
+            <p class="name">{{ c.hora }}</p> 
+        </div>
+
+        <div class="d1">
+            <p class="name">{{ c.valor }}</p> 
+        </div>
+
+        <div class="d1">
+            <p class="name">{{ c.medico }}</p> 
+        </div>
+          
+
+        </div>
+        <br>
+    {% endfor %}
+{% endblock %}
+
+<!--acceso al JS local-->
+<!-- {% block js %}
+    <script src="{% static 'cats/js/btn-copiar.js' %}"></script>
+{% endblock %} -->

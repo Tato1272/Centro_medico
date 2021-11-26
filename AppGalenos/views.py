@@ -9,7 +9,7 @@ def return_home(request):
 
 def listar_hora(request):
     horas = Hora.objects.all()
-    return render(request, "horas/listar_horas.html", {'horas': horas})
+    return render(request, "listar_horas.html", {'horas': horas})
 
 def add_hora(request):
     

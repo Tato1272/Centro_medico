@@ -48,7 +48,7 @@ class Paciente(models.Model):
 
 class Hora(models.Model):
         fecha = models.DateField()
-        hora = models.DateTimeField()
+        hora = models.TimeField()
         valor = models.IntegerField()
-        paciente = models.ForeignKey(Paciente, on_delete=models.PROTECT)
+        paciente = models.ForeignKey(Paciente, on_delete=models.PROTECT, null=True, blank=True)
         medico = models.ForeignKey(Medico, on_delete=models.PROTECT)
