@@ -17,7 +17,7 @@ class HorasForm(forms.ModelForm):
         widgets = {
             
             'fecha': forms.DateInput(attrs={'class': 'form-control'}),
-            'hora': forms.DateTimeInput(attrs={'class': 'form-control'}),
+            'hora': forms.TimeInput(attrs={'class': 'form-control'}),
             'valor': forms.TextInput(attrs={'class': 'form-control'}),
             'paciente': forms.TextInput(attrs={'class': 'form-control'}),
             'medico': forms.TextInput(attrs={'class': 'form-control'})

@@ -56,6 +56,6 @@ def editar_hora(request, id_hora):
             data=request.POST, instance=hora, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
-            return redirect(to="listar_horas")
+            return redirect(to="listar_hora")
         data["form"] = formulario
-    return render(request, "horas/editar_hora.html", data)
+    return render(request, "editar_hora.html", data)

@@ -26,23 +26,21 @@
 
     {% for c in horas %}
         <div class="item">
-          <div class="d1">
-              <p class="name">{{ c.fecha }}</p> 
-          </div>
-
-          <div class="d1">
-            <p class="name">{{ c.hora }}</p> 
-        </div>
-
-        <div class="d1">
-            <p class="name">{{ c.valor }}</p> 
-        </div>
-
-        <div class="d1">
-            <p class="name">{{ c.medico }}</p> 
-        </div>
-          
-
+            <div class="d1">
+                <p class="name">{{ c.fecha }}</p> 
+            </div>
+            <div class="d1">
+                <p class="name">{{ c.hora }}</p> 
+            </div>
+            <div class="d1">
+                <p class="name">{{ c.valor }}</p> 
+            </div>
+            <div class="d1">
+                <p class="name">{{ c.medico }}</p> 
+            </div>
+            <div class="d4" id="d4">
+                <a class="btn btn-primary" href="{% url 'editar_hora' c.id%}">Editar</a>
+            </div>
         </div>
         <br>
     {% endfor %}
