@@ -9,4 +9,6 @@ urlpatterns = [
     path('add_hora', views.add_hora, name="add_hora"),
 
     path('editar_hora/<int:id_hora>', views.editar_hora, name="editar_hora"),
+
+    path('borrar_hora/<int:id_hora>', views.borrar_hora, name="borrar_hora"),
 ]

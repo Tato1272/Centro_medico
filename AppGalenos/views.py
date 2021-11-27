@@ -41,7 +41,7 @@ def add_hora(request):
 def borrar_hora(request, id_hora):
     instancia = Hora.objects.get(id=id_hora)
     instancia.delete()
-    return redirect('listar_horas')
+    return redirect('listar_hora')
 
 
 def editar_hora(request, id_hora):
