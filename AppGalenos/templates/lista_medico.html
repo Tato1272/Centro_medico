@@ -11,22 +11,12 @@
 
 <h2>Agendas Médicos</h2>
 <br>
-<aside id="aside-1">
+{% for m in medicos %}
+<aside id="aside-{{ m.id }}">
     <button>
-        <a href="{% url 'listar_hora' %}">Arturo Vargas</a> </button>
+        <a href="{% url 'listar_hora' m.id%}">{{ m.primerNombre }} {{ m.primerApellido }}</a> </button>
 </aside>
-<aside id="aside-2">
-    <button>
-        <a href="{% url 'listar_hora2' %}">Tatiana Duran</a> </button>
-</aside>
-<aside id="aside-3">
-    <button>
-        <a href="{% url 'listar_hora3' %}"> José Torres</a> </button>
-</aside>
-<aside id="aside-4">
-    <button>
-        <a href="{% url 'listar_hora4' %}">Francisco Fuenzalida </a> </button>
-</aside>
+{% endfor %}
 <br>
 
 <br><br><br><br>

@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [   
     path('', views.return_home, name='home'),
     
-    path('listar_hora', views.listar_hora, name="listar_hora"),
+    path('listar_hora/<int:id_medico>', views.listar_hora, name="listar_hora"),
 
     path('add_hora', views.add_hora, name="add_hora"),
 
@@ -13,10 +13,4 @@ urlpatterns = [
     path('borrar_hora/<int:id_hora>', views.borrar_hora, name="borrar_hora"),
 
     path('lista_medico', views.lista_medico, name="lista_medico"),
-
-    path('listar_hora2', views.listar_hora2, name="listar_hora2"),
-
-    path('listar_hora3', views.listar_hora3, name="listar_hora3"),
-
-    path('listar_hora4', views.listar_hora4, name="listar_hora4"),
 ]
