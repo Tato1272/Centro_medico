@@ -3,7 +3,7 @@
 
 <!--acceso al css local-->
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/horas_disp.css' %}">
+<link rel="stylesheet" href="{% static 'css/listar_medico.css' %}">
 {% endblock %}
 
 {% block contenido %}
@@ -11,11 +11,15 @@
 
 <h2>Agendas Médicos</h2>
 <br>
+<div class="line"></div>
+<br>
+<br>
 {% for m in medicos %}
-<aside id="aside-{{ m.id }}">
-    <button>
-        <a href="{% url 'listar_hora' m.id%}">{{ m.primerNombre }} {{ m.primerApellido }}</a> </button>
-</aside>
+<div class="flex-container">
+    <a class="button" id="button" href="{% url 'listar_hora' m.id%}">{{ m.primerNombre }} {{ m.primerApellido }} - {{m.especialidad}}</a>
+</div>
+<br>
+<br>
 {% endfor %}
 <br>
 
