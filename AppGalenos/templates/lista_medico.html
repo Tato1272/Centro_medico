@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!--acceso al css local-->
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/horas_disp.css' %}">
+{% endblock %}
+
+{% block contenido %}
+<br>
+
+<h2>Agendas Médicos</h2>
+<br>
+<aside id="aside-1">
+    <button>
+        <a href="{% url 'listar_hora' %}">Arturo Vargas</a> </button>
+</aside>
+<aside id="aside-2">
+    <button>
+        <a href="{% url 'listar_hora2' %}">Tatiana Duran</a> </button>
+</aside>
+<aside id="aside-3">
+    <button>
+        <a href="{% url 'listar_hora3' %}"> José Torres</a> </button>
+</aside>
+<aside id="aside-4">
+    <button>
+        <a href="{% url 'listar_hora4' %}">Francisco Fuenzalida </a> </button>
+</aside>
+
+
+<br><br><br><br>
+{% endblock %}
+
+<!--acceso al JS local-->
+{% block js %}
+<script src="#"></script>
+{% endblock %}

@@ -11,7 +11,7 @@ def return_home(request):
 
 
 def listar_hora(request):
-    horas = Hora.objects.all()
+    horas = Hora.objects.filter(medico =1)
     medicos = Medico.objects.all()
     data = {
         'horas': horas,
@@ -63,3 +63,34 @@ def editar_hora(request, id_hora):
             return redirect(to="listar_hora")
         data["form"] = formulario
     return render(request, "editar_hora.html", data)
+
+def listar_hora2(request):
+    horas = Hora.objects.filter(medico=2)
+    medicos = Medico.objects.all()
+    data = {
+        'horas': horas,
+        'medicos': medicos
+    }
+    return render(request, "listar_horas2.html", data)
+
+def lista_medico(request):
+    return render(request, "lista_medico.html")
+
+
+def listar_hora3(request):
+    horas = Hora.objects.filter(medico=3)
+    medicos = Medico.objects.all()
+    data = {
+        'horas': horas,
+        'medicos': medicos
+    }
+    return render(request, "listar_horas3.html", data)
+
+def listar_hora4(request):
+    horas = Hora.objects.filter(medico=4)
+    medicos = Medico.objects.all()
+    data = {
+        'horas': horas,
+        'medicos': medicos
+    }
+    return render(request, "listar_horas4.html", data)

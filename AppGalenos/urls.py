@@ -11,4 +11,12 @@ urlpatterns = [
     path('editar_hora/<int:id_hora>', views.editar_hora, name="editar_hora"),
 
     path('borrar_hora/<int:id_hora>', views.borrar_hora, name="borrar_hora"),
+
+    path('lista_medico', views.lista_medico, name="lista_medico"),
+
+    path('listar_hora2', views.listar_hora2, name="listar_hora2"),
+
+    path('listar_hora3', views.listar_hora3, name="listar_hora3"),
+
+    path('listar_hora4', views.listar_hora4, name="listar_hora4"),
 ]
