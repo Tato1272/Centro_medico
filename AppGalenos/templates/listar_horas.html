@@ -3,54 +3,59 @@
 
 <!--acceso al css local-->
 {% block css %}
-<link rel="stylesheet" href="#">
+<link rel="stylesheet" href="{% static 'css/horas_disp.css' %}">
 {% endblock %}
 
 {% block contenido %}
-    
-    <h2>Horas Disponibles</h2>
+<br>
 
-    <form action="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="form-group col-12">
-            <label for="medico">Médico</label>
-            <select name="medico" id="medico">
-                <option selected="selected">Seleccione un Médico</option>
-                {% for m in medicos %}
-                <option value="{{ m.id }}">{{ m.primerNombre }} {{ m.primerApellido }} </option>
-                {% endfor %}
-            </select>
-        </div>
+<h2>Horas Disponibles</h2>
+<br>
+<form id="form_med" action="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group col-12">
+        <label for="medico">Médico</label>
+        <select name="medico" id="medico">
+            <option selected="selected">Seleccione un Médico</option>
+            {% for m in medicos %}
+            <option value="{{ m.id }}">{{ m.primerNombre }} {{ m.primerApellido }} </option>
+            {% endfor %}
+        </select>
         <button type="submit" class="btn btn-primary">Filtrar por medico</button>
-    </form>
+    </div>
+    
 
+</form>
+<br>
+
+<table id="tabla-categorias" class="table table-hover">
+    <thead>
+        <tr>
+            <th scope='col'></th>
+            <th scope='col'>Médico</th>
+            <th scope='col'> Hora </th>
+            <th scope='col'> Fecha </th>
+            <th scope='col'> Valor </th>
+            <th scope='col'></th>
+        </tr>
+    </thead>
     {% for c in horas %}
-        <div class="item">
-            <div class="d1">
-                <p class="name">{{ c.fecha }}</p> 
-            </div>
-            <div class="d1">
-                <p class="name">{{ c.hora }}</p> 
-            </div>
-            <div class="d1">
-                <p class="name">{{ c.valor }}</p> 
-            </div>
-            <div class="d1">
-                <p class="name">{{ c.medico }}</p> 
-            </div>
-            <div class="d4" id="d4">
-                <a class="btn btn-primary" href="{% url 'editar_hora' c.id%}">Editar</a>
-            </div>
-            <div class="d4" id="d4">
-                <a class="btn btn-primary" href="{% url 'borrar_hora' c.id%}">Borrar</a>
-            </div>
-        </div>
-        <br>
+    <tr>
+            <td> </td>
+            <td> {{c.medico}}</td>
+            <td> {{ c.hora }} </td>
+            <td> {{c.fecha}} </td>
+            <td> {{c.valor}} </td>
+            <td><a class="btn btn-primary" href="{% url 'editar_hora' c.id%}">Editar</a>
+                
+                <a class="btn btn-primary" href="{% url 'borrar_hora' c.id%}">Borrar</a> </td>
+    </tr>
     {% endfor %}
-    <br>
+</table>
+<br><br><br><br>
 {% endblock %}
 
 <!--acceso al JS local-->
 {% block js %}
-    <script src="#"></script>
+<script src="#"></script>
 {% endblock %}
