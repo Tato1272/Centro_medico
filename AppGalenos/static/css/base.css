@@ -51,10 +51,9 @@ body {
 
 footer {
     background-color: skyblue;
-    height: 40px;
+    height: 66px;
     bottom: 0;
     width: 100%;
-    position:fixed;
     left:0px;
 }
 
@@ -63,6 +62,8 @@ footer p {
     text-align: right;
     font-family: "open sans";
     font-size: 20px;
+    padding-right: 20px;
+    padding-top: 18px;
 }
 
 @media screen and (max-width:800px) {
