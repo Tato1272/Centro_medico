@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Hora, Medico
 from .forms import HorasForm
+from django.contrib import messages
 
 # Create your views here.
 
@@ -32,7 +33,8 @@ def add_hora(request):
         formulario = HorasForm(data=request.POST, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
-            data["mensaje"] = "guardado correctamente"
+            messages.success(request, 'Hora agregada correctamente')
+            return redirect('listar_hora')
         else:
             data["form"] = formulario
     return render(request, "add_hora.html", data)
@@ -41,6 +43,7 @@ def add_hora(request):
 def borrar_hora(request, id_hora):
     instancia = Hora.objects.get(id=id_hora)
     instancia.delete()
+    messages.success(request, 'Hora Eliminada Correctamente')
     return redirect('listar_hora')
 
 
@@ -56,6 +59,7 @@ def editar_hora(request, id_hora):
             data=request.POST, instance=hora, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
+            messages.success(request, 'Hora Editada Correctamente')
             return redirect(to="listar_hora")
         data["form"] = formulario
     return render(request, "editar_hora.html", data)

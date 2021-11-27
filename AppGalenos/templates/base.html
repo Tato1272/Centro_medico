@@ -79,6 +79,23 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/additional-methods.min.js"
             integrity="sha512-6Uv+497AWTmj/6V14BsQioPrm3kgwmK9HYIyWP+vClykX52b0zrDGP7lajZoIY1nNlX4oQuh7zsGjmF7D0VZYA=="
             crossorigin="anonymous"></script>
+
+        <!-- mandar mensajes-->
+
+        <script src="sweetalert2.all.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        {% if messages %}
+        {% for m in messages %}
+        <script>
+            Swal.fire({
+                "title": "Felicitaciones",
+                "text": "{{ m }}",
+                "icon": "success",
+                    })
+                </script>
+            {%endfor%}
+        {% endif %}
         {% block js %}
         {% endblock %}
 
