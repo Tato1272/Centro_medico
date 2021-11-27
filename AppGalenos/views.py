@@ -1,47 +1,96 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Hora
+from .models import Hora, Medico
 from .forms import HorasForm
+from django.contrib import messages
 
 # Create your views here.
 
+
 def return_home(request):
-    return render(request,"home.html")
+    return render(request, "home.html")
+
 
 def listar_hora(request):
-    horas = Hora.objects.all()
-    return render(request, "listar_horas.html", {'horas': horas})
+    horas = Hora.objects.filter(medico =1)
+    medicos = Medico.objects.all()
+    data = {
+        'horas': horas,
+        'medicos': medicos
+    }
+    return render(request, "listar_horas.html", data)
+
 
 def add_hora(request):
-    
-    data={
-        'form' : HorasForm()
+
+    medicos = Medico.objects.all()
+
+    data = {
+        'form': HorasForm(),
+        'medicos': medicos
     }
-    
+
     if request.method == 'POST':
         formulario = HorasForm(data=request.POST, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
-            data["mensaje"] = "guardado correctamente"
+            messages.success(request, 'Hora agregada correctamente')
+            return redirect('listar_hora')
         else:
             data["form"] = formulario
-    return render(request, "horas/add_hora.html", data)
+    return render(request, "add_hora.html", data)
+
 
 def borrar_hora(request, id_hora):
     instancia = Hora.objects.get(id=id_hora)
     instancia.delete()
-    return redirect('listar_horas')
+    messages.success(request, 'Hora Eliminada Correctamente')
+    return redirect('listar_hora')
+
 
 def editar_hora(request, id_hora):
     hora = get_object_or_404(Hora, id=id_hora)
-    
+
     data = {
-        'form' : HorasForm(instance=hora)
+        'form': HorasForm(instance=hora)
     }
-    
+
     if request.method == 'POST':
-        formulario = HorasForm(data=request.POST, instance=hora, files=request.FILES)
+        formulario = HorasForm(
+            data=request.POST, instance=hora, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
-            return redirect (to="listar_horas")
+            messages.success(request, 'Hora Editada Correctamente')
+            return redirect(to="listar_hora")
         data["form"] = formulario
-    return render(request, "horas/editar_hora.html", data)
+    return render(request, "editar_hora.html", data)
+
+def listar_hora2(request):
+    horas = Hora.objects.filter(medico=2)
+    medicos = Medico.objects.all()
+    data = {
+        'horas': horas,
+        'medicos': medicos
+    }
+    return render(request, "listar_horas2.html", data)
+
+def lista_medico(request):
+    return render(request, "lista_medico.html")
+
+
+def listar_hora3(request):
+    horas = Hora.objects.filter(medico=3)
+    medicos = Medico.objects.all()
+    data = {
+        'horas': horas,
+        'medicos': medicos
+    }
+    return render(request, "listar_horas3.html", data)
+
+def listar_hora4(request):
+    horas = Hora.objects.filter(medico=4)
+    medicos = Medico.objects.all()
+    data = {
+        'horas': horas,
+        'medicos': medicos
+    }
+    return render(request, "listar_horas4.html", data)
