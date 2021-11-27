@@ -16,7 +16,8 @@ def add_hora(request):
     medicos = Medico.objects.all()
 
     data={
-        'form' : HorasForm()
+        'form' : HorasForm(),
+        'medicos': medicos
     }
     
     if request.method == 'POST':
@@ -24,11 +25,9 @@ def add_hora(request):
         if formulario.is_valid():
             formulario.save()
             data["mensaje"] = "guardado correctamente"
-            return redirect (to="listar_hora")
         else:
             data["form"] = formulario
-    return render(request, "add_hora.html", {'medicos': medicos})    
-    return render(request, "add_hora.html", data)
+    return render(request, "add_hora.html", data)    
 
 def borrar_hora(request, id_hora):
     instancia = Hora.objects.get(id=id_hora)
