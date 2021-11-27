@@ -10,6 +10,20 @@
     
     <h2>Horas Disponibles</h2>
 
+    <form action="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group col-12">
+            <label for="medico">Médico</label>
+            <select name="medico" id="medico">
+                <option selected="selected">Seleccione un Médico</option>
+                {% for m in medicos %}
+                <option value="{{ m.id }}">{{ m.primerNombre }} {{ m.primerApellido }} </option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Filtrar por medico</button>
+    </form>
+
     {% for c in horas %}
         <div class="item">
           <div class="d1">
