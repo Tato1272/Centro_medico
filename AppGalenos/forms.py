@@ -1,5 +1,5 @@
 from django import forms
-from .models import Hora
+from .models import Hora,Medico
 from django.contrib import messages
 
 class HorasForm(forms.ModelForm):
