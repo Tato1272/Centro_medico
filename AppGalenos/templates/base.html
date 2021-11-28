@@ -87,9 +87,14 @@
                 "title": "Felicitaciones",
                 "text": "{{ m }}",
                 "icon": "success",
-                    })
-                </script>
-            {%endfor%}
+            })
+            Swal.fire({
+                "title": "Lo Sentimos",
+                "text": "{{ m }}",
+                "icon": "error",
+            })
+        </script>
+        {%endfor%}
         {% endif %}
         {% block js %}
         {% endblock %}

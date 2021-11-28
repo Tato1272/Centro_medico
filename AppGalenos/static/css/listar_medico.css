@@ -11,16 +11,12 @@
     position: relative;
     transition: background-color .6s ease;
     overflow: hidden;
-}
-
-a {
     outline: none;
     display: inline-block;
     width: 30%;
     margin-right: 0.625%;
     text-align: center;
-  }
-  
+}  
 
 h2{
     text-align: center;

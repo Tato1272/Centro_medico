@@ -34,8 +34,9 @@ def add_hora(request):
         if formulario.is_valid():
             formulario.save()
             messages.success(request, 'Hora agregada correctamente')
-            return redirect('listar_hora')
+            return redirect('lista_medico')
         else:
+            messages.error(request, 'No se ha podido agregar')
             data["form"] = formulario
     return render(request, "add_hora.html", data)
 
@@ -44,7 +45,7 @@ def borrar_hora(request, id_hora):
     instancia = Hora.objects.get(id=id_hora)
     instancia.delete()
     messages.success(request, 'Hora Eliminada Correctamente')
-    return redirect('listar_hora')
+    return redirect('lista_medico')
 
 
 def editar_hora(request, id_hora):
@@ -60,7 +61,7 @@ def editar_hora(request, id_hora):
         if formulario.is_valid():
             formulario.save()
             messages.success(request, 'Hora Editada Correctamente')
-            return redirect(to="listar_hora")
+            return redirect(to="lista_medico")
         data["form"] = formulario
     return render(request, "editar_hora.html", data)
 
