@@ -81,21 +81,17 @@
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         {% if messages %}
-        {% for m in messages %}
-        <script>
-            Swal.fire({
-                "title": "Felicitaciones",
-                "text": "{{ m }}",
-                "icon": "success",
-            })
-            Swal.fire({
-                "title": "Lo Sentimos",
-                "text": "{{ m }}",
-                "icon": "error",
-            })
-        </script>
-        {%endfor%}
+            {% for m in messages %}
+            <script>
+                Swal.fire({
+                    "title": "Felicitaciones",
+                    "text": "{{ m }}",
+                    "icon": "success",
+                })
+            </script>
+            {%endfor%}
         {% endif %}
+        
         {% block js %}
         {% endblock %}
 

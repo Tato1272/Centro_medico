@@ -32,7 +32,7 @@
             <td> {{c.valor}} </td>
             <td><a class="btn btn-primary" href="{% url 'editar_hora' c.id%}">Editar</a>
                 
-                <a class="btn btn-primary" href="{% url 'borrar_hora' c.id%}">Borrar</a> </td>
+                <a class="btn btn-primary" href="#" onclick="eliminarHora({{ c.id }})">Borrar</a> </td>
     </tr>
     {% endfor %}
 </table>
@@ -41,5 +41,21 @@
 
 <!--acceso al JS local-->
 {% block js %}
-<script src="#"></script>
+<script>
+    function eliminarHora(id) {
+        Swal.fire({
+            "title":"¿Estas Seguro?",
+            "text":"Esta accion no se puede deshacer",
+            "icon":"question",
+            "showCancelButton":true,
+            "cancelButtonText":"No, Cancelar",
+            "confirmButtonText":"Sí, Eliminar",
+        })
+        .then(function(result){
+            if(result.isConfirmed){
+                window.location.href = "/borrar_hora/"+id
+            }
+        })
+    }
+</script>
 {% endblock %}
