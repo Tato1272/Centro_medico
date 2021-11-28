@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Hora, Medico
 from .forms import HorasForm
 from django.contrib import messages
-from swal import sweetalert2
+
 
 # Create your views here.
 
